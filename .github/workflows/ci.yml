@@ -1,0 +1,15 @@
+on:
+  push
+
+name: CI
+
+jobs:
+  ci:
+    name: CI
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v1.0.0
+    - name: Test
+      run: |
+        npm ci && npm test
