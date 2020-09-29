@@ -1,9 +1,9 @@
 jest.mock('@actions/github');
 
 let github = require('@actions/github');
-const run = require('./index.js');
+const { run, sum } = require('./index.js');
 
-describe('module', () => {
+describe('run', () => {
   let createRelease;
 
   beforeEach(() => {
@@ -31,4 +31,10 @@ describe('module', () => {
     expect(createRelease).toHaveBeenCalled();
     expect(createRelease).toHaveBeenCalledWith({owner: 'owner', repo: 'repo'});
   });
-})
+});
+
+describe('sum', () => {
+  test('numbers are summed', () => {
+    expect(sum(1, 1, 1, 1)).toBe(4);
+  });
+});
