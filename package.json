@@ -10,7 +10,10 @@
   "author": "Steve Winton <stevewinton@gmail.com> (https://github.com/swinton)",
   "license": "ISC",
   "dependencies": {
-    "@actions/github": "^1.1.0",
-    "jest": "^24.9.0"
+    "@actions/github": "^4.0.0",
+    "jest": "^26.4.1"
+  },
+  "devDependencies": {
+    "@jamesacarr/jest-reporter-github-actions": "0.0.1"
   }
 }

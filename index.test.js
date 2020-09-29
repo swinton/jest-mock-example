@@ -1,6 +1,6 @@
 jest.mock('@actions/github');
 
-let { GitHub, context } = require('@actions/github');
+let github = require('@actions/github');
 const run = require('./index.js');
 
 describe('module', () => {
@@ -9,19 +9,19 @@ describe('module', () => {
   beforeEach(() => {
     createRelease = jest.fn();
 
-    context.repo = {
+    github.context.repo = {
       owner: 'owner',
       repo: 'repo',
     };
 
-    const github = {
+    const octokit = {
       repos: {
         createRelease
       }
     };
 
-    GitHub.mockImplementation(() => {
-      return github;
+    github.getOctokit.mockImplementation(() => {
+      return octokit;
     });
   });
 

@@ -1,12 +1,12 @@
-const { GitHub, context } = require('@actions/github');
+const github = require('@actions/github');
 
 async function run() {
   // Get owner and repo from context of payload that triggered the action
-  const { owner, repo } = context.repo;
+  const { owner, repo } = github.context.repo;
 
-  const github = new GitHub('TOKEN');
+  const octokit = github.getOctokit('TOKEN');
 
-  await github.repos.createRelease({owner, repo});
+  await octokit.repos.createRelease({owner, repo});
 }
 
 module.exports = run
