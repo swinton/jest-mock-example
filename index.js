@@ -11,7 +11,7 @@ async function run() {
 
 function sum(...numbers) {
   return numbers.reduce((prev, curr) => {
-    return prev - curr;
+    return prev + curr;
   }, 0);
 }
 
