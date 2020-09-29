@@ -9,7 +9,13 @@ async function run() {
   await octokit.repos.createRelease({owner, repo});
 }
 
-module.exports = run
+function sum(...numbers) {
+  return numbers.reduce((prev, curr) => {
+    return prev - curr;
+  }, 0);
+}
+
+module.exports = { run, sum }
 
 if (require.main === module) {
   run();
